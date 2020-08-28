@@ -6,7 +6,6 @@ import org.springframework.boot.runApplication
 import org.springframework.boot.web.servlet.FilterRegistrationBean
 import org.springframework.context.annotation.Bean
 import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 import org.springframework.web.filter.CorsFilter
@@ -23,14 +22,16 @@ fun main(args: Array<String>) {
 	fun simpleCorsFilter(): FilterRegistrationBean<CorsFilter> {
 		val source = UrlBasedCorsConfigurationSource()
 		val config = CorsConfiguration()
-
+		config.allowCredentials = true
+		config.allowedOrigins = listOf("http://localhost:4200")
+		config.allowedHeaders = listOf("*")
+		config.allowedMethods = listOf("*")
 		val bean = FilterRegistrationBean<CorsFilter>(CorsFilter(source))
 		bean.order = Ordered.HIGHEST_PRECEDENCE
 		return bean
 	}
 
 }
-
 
 data class Note(@Id @GeneratedValue var id: Long? = null,
 				var title: String? = null,
