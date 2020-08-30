@@ -9,8 +9,8 @@ import org.springframework.core.Ordered
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 import org.springframework.web.filter.CorsFilter
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
+import javax.persistence.GenerationType.SEQUENCE
 
 @SpringBootApplication
 class NotesBeApplication
@@ -33,7 +33,10 @@ fun main(args: Array<String>) {
 
 }
 
-data class Note(@Id @GeneratedValue var id: Long? = null,
+@Entity
+data class Note(@Id @GeneratedValue(strategy = SEQUENCE, generator = "note_id_seq")
+				@SequenceGenerator(name = "note_id_seq", sequenceName = "note_id_seq", allocationSize = 1)
+				var id: Long? = null,
 				var title: String? = null,
 				var text: String? = null,
-				@JsonIgnore var user: String? = null)
+				@JsonIgnore @Column(name = "username") var user: String? = null)
