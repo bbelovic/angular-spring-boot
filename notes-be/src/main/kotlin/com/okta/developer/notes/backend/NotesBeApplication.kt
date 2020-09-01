@@ -13,11 +13,7 @@ import javax.persistence.*
 import javax.persistence.GenerationType.SEQUENCE
 
 @SpringBootApplication
-class NotesBeApplication
-
-fun main(args: Array<String>) {
-	runApplication<NotesBeApplication>(*args)
-
+class NotesBeApplication {
 	@Bean
 	fun simpleCorsFilter(): FilterRegistrationBean<CorsFilter> {
 		val source = UrlBasedCorsConfigurationSource()
@@ -26,11 +22,15 @@ fun main(args: Array<String>) {
 		config.allowedOrigins = listOf("http://localhost:4200")
 		config.allowedHeaders = listOf("*")
 		config.allowedMethods = listOf("*")
+		source.registerCorsConfiguration("/**", config)
 		val bean = FilterRegistrationBean<CorsFilter>(CorsFilter(source))
 		bean.order = Ordered.HIGHEST_PRECEDENCE
 		return bean
 	}
+}
 
+fun main(args: Array<String>) {
+	runApplication<NotesBeApplication>(*args)
 }
 
 @Entity
