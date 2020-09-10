@@ -1,0 +1,10 @@
+version: '3'
+services:
+  notes-be:
+    image:notes-be-jib:latest
+  db:
+    image: 'postgres:9.6'
+    environment:
+      - POSTGRES_USER=notes_user
+      - POSTGRES_DB=notes_db
+      - POSTGRES_PASSWORD=notes_pass
