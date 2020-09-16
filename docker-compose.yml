@@ -12,3 +12,5 @@ services:
       - DB_USER=notes_user
       - DB_PASSWD=notes_pass
       - DB_NAME=notes_db
+      - DB_HOST=db
+      - DB_PORT=5432
