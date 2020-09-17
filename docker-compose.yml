@@ -14,3 +14,7 @@ services:
       - DB_NAME=notes_db
       - DB_HOST=db
       - DB_PORT=5432
+    depends_on:
+      - db
+    command: ["pwd"]
+        #    command: ["./wait-for-it.sh", "db:5432", "--timeout=15"]
