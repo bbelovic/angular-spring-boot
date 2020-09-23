@@ -16,6 +16,6 @@ services:
       - DB_PORT=5432
     depends_on:
       - db
-    entrypoint: ["./wait-for-it", "db:5432", "--timeout=15", "--", "java", "-cp", "/app/resources:/app/classes:/app/libs/*", "com.okta.developer.notes.backend.NotesBeApplicationKt"]
-        #command: ["pwd"]
+    entrypoint: ["./entrypoint.sh"]
+    command: ["db:5432"]
         #    command: ["./wait-for-it.sh", "db:5432", "--timeout=15"]

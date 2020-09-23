@@ -114,20 +114,20 @@
                     <to>
                         <image>notes-be-jib</image>
                     </to>
-                    <!--<container>
+                    <container>
                         <entrypoint>
                             entrypoint.sh
                         </entrypoint>
-                    </container>-->
+                    </container>
                     <extraDirectories>
-                        <paths>src/main/sh</paths>
+                        <paths>src/main/jib</paths>
                         <permissions>
                             <permission>
-                                <file>entrypoint.sh</file>
+                                <file>/entrypoint.sh</file>
                                 <mode>755</mode>
                             </permission>
                             <permission>
-                                <file>wait-for-it.sh</file>
+                                <file>/wait-for-it.sh</file>
                                 <mode>755</mode>
                             </permission>
                         </permissions>
