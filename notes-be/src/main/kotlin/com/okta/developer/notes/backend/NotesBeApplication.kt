@@ -19,7 +19,7 @@ class NotesBeApplication {
 		val source = UrlBasedCorsConfigurationSource()
 		val config = CorsConfiguration()
 		config.allowCredentials = true
-		config.allowedOrigins = listOf("http://localhost:4200")
+		config.allowedOrigins = listOf("http://localhost:8888")
 		config.allowedHeaders = listOf("*")
 		config.allowedMethods = listOf("*")
 		source.registerCorsConfiguration("/**", config)
@@ -33,9 +33,9 @@ fun main(args: Array<String>) {
 	runApplication<NotesBeApplication>(*args)
 }
 
-@Entity
-data class Note(@Id @GeneratedValue(strategy = SEQUENCE, generator = "note_id_seq")
-				@SequenceGenerator(name = "note_id_seq", sequenceName = "note_id_seq", allocationSize = 1)
+@Entity @Table(name = "notes")
+data class Note(@Id @GeneratedValue(strategy = SEQUENCE, generator = "notes_id_seq")
+				@SequenceGenerator(name = "notes_id_seq", sequenceName = "notes_id_seq", allocationSize = 1)
 				var id: Long? = null,
 				var title: String? = null,
 				var text: String? = null,
