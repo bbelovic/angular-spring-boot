@@ -14,7 +14,14 @@ services:
       - DB_NAME=notes_db
       - DB_HOST=db
       - DB_PORT=5432
+      - FE_PORT=4200
     depends_on:
       - db
     entrypoint: ["./entrypoint.sh"]
     command: ["db:5432"]
+  notes-fe:
+    image: 'notes-fe:latest'
+    ports:
+      - "4200:80"
+    depends_on: 
+      - 'notes-be'
