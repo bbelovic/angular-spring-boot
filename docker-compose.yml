@@ -18,4 +18,3 @@ services:
       - db
     entrypoint: ["./entrypoint.sh"]
     command: ["db:5432"]
-        #    command: ["./wait-for-it.sh", "db:5432", "--timeout=15"]
