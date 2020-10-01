@@ -1,2 +1,10 @@
+language: java
+jdk:
+  - openjdk14
+sudo: required
 services:
   - docker
+script:
+  mvn clean compile jib:dockerBuild
+after_success:
+  docker login
