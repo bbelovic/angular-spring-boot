@@ -5,8 +5,10 @@ sudo: required
 services:
   - docker
 script:
-  - docker build -t bbelovic/notes-fe:latest notes-fe
-  - mvn -f notes-fe/pom.xml clean compile jib:dockerBuild
+  - cd notef-fe
+  - docker build -t bbelovic/notes-fe:latest .
+  - cd ..
+  - mvn -f notes-be/pom.xml clean compile jib:dockerBuild
    
   #after_success:
   
