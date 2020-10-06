@@ -13,11 +13,11 @@ RUN apt-get update && apt-get install -y curl dirmngr apt-transport-https lsb-re
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs
 
-COPY ["src/", "/opt/notes-fe/src/"]
-COPY ["e2e/", "/opt/notes-fe/e2e/"]
-COPY ["angular.json", "browserslist", "karma.conf.js", "package.json", "README.md", "tsconfig.app.json", "tsconfig.json", "tsconfig.spec.json", "tslint.json", "/opt/notes-fe/"]
+COPY ["src/", "./src/"]
+COPY ["e2e/", "./e2e/"]
+COPY ["angular.json", "browserslist", "karma.conf.js", "package.json", "README.md", "tsconfig.app.json", "tsconfig.json", "tsconfig.spec.json", "tslint.json", "./"]
 
-WORKDIR /opt/notes-fe
+#WORKDIR /opt/notes-fe
 
 RUN npm install
 RUN npm install -g @angular/cli@9.0.2
