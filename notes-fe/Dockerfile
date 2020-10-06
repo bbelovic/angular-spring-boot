@@ -23,4 +23,8 @@ RUN npm install
 RUN npm install -g @angular/cli@9.0.2
 RUN ng build
 
+RUN pwd
+RUN ls -al .
+RUN ls -al dist
+
 COPY ["dist/notes-fe/", "/usr/local/apache2/htdocs/"]
