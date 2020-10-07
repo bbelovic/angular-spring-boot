@@ -17,15 +17,8 @@ COPY ["src/", "./src/"]
 COPY ["e2e/", "./e2e/"]
 COPY ["angular.json", "browserslist", "karma.conf.js", "package.json", "README.md", "tsconfig.app.json", "tsconfig.json", "tsconfig.spec.json", "tslint.json", "./"]
 
-#WORKDIR /opt/notes-fe
-
 RUN npm install
 RUN npm install -g @angular/cli@9.0.2
 RUN ng build
 
-RUN pwd
-RUN ls -al .
-RUN ls -al dist
 RUN cp -r dist/notes-fe/* /usr/local/apache2/htdocs/
-
-#COPY ["dist/notes-fe/", "/usr/local/apache2/htdocs/"]
