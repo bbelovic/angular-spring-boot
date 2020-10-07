@@ -26,5 +26,6 @@ RUN ng build
 RUN pwd
 RUN ls -al .
 RUN ls -al dist
+RUN cp -r dist/notes-fe/* /usr/local/apache2/htdocs/
 
-COPY ["dist/notes-fe/", "/usr/local/apache2/htdocs/"]
+#COPY ["dist/notes-fe/", "/usr/local/apache2/htdocs/"]
