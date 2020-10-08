@@ -1,14 +1,14 @@
 language: java
 jdk:
-  - openjdk14
+ - openjdk14
 sudo: required
 services:
-  - docker
+ - docker
 script:
-  #- cd notes-fe
-  - docker build -t bbelovic/notes-fe:latest notes-fe/
-    #- cd ..
-  - mvn -f notes-be/pom.xml clean compile jib:dockerBuild
-   
-  #after_success:
-  
+ - docker build -t bbelovic/notes-fe:latest notes-fe/
+ - mvn -f notes-be/pom.xml clean compile jib:dockerBuild
+after_success: 
+ - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+ - docker push bbelovic/notes-fe
+ - docker push bbelovic/notes-be
+
