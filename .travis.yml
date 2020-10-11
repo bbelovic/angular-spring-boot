@@ -9,6 +9,6 @@ script:
  - mvn -f notes-be/pom.xml clean compile jib:dockerBuild
 after_success: 
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+ - docker push bbelovic/notes-fe
  - docker push bbelovic/notes-be
-#- docker push bbelovic/notes-be
 

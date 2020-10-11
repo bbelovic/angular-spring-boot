@@ -116,7 +116,7 @@
                         </image>
                     </from>
                     <to>
-                        <image>notes-be-jib</image>
+                        <image>bbelovic/notes-be</image>
                     </to>
                     <container>
                         <entrypoint>
