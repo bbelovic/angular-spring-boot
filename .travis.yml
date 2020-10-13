@@ -11,4 +11,6 @@ after_success:
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
  - docker push bbelovic/notes-fe
  - docker push bbelovic/notes-be
+ - echo "$HEROKU_DOCKER_PASSWORD" | docker login -u "$HEROKU_DOCKER_USERNAME" --password-stdin
+
 
