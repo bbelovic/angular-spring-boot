@@ -139,6 +139,16 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>${basedir}/../notes-fe/dist/notes-fe</directory>
+                <targetPath>static</targetPath>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+
     </build>
 
 </project>
