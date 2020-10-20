@@ -3,13 +3,14 @@ import { NoteFilter } from './note-filter';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 const headers = new HttpHeaders().set('Accept', 'application/json');
 
 @Injectable()
 export class NoteService {
   noteList: Note[] = [];
-  api = 'http://localhost:8080/api/notes';
+  api = `${environment.apiUrl}/api/notes`;
 
   constructor(private http: HttpClient) {
   }
@@ -35,7 +36,7 @@ export class NoteService {
       'title': filter.title,
     };
 
-    const userNotes = 'http://localhost:8080/user/notes' 
+    const userNotes = `${environment.apiUrl}/user/notes` 
     return this.http.get<Note[]>(userNotes, {params, headers});
   }
 
@@ -63,4 +64,3 @@ export class NoteService {
     return null;
   }
 }
-
