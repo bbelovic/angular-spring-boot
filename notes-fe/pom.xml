@@ -34,7 +34,6 @@
                 <configuration>
                     <nodeVersion>${node.version}</nodeVersion>
                     <installDirectory>target</installDirectory>
-                    <workingDirectory>src/main/frontend</workingDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -62,7 +61,7 @@
                             <arguments>run build</arguments>
                         </configuration>
                     </execution>
-                    <execution>
+                    <!--execution>
                         <id>npm run test</id>
                         <goals>
                             <goal>
@@ -73,7 +72,7 @@
                         <configuration>
                             <arguments>run test</arguments>
                         </configuration>
-                    </execution>
+                    </execution-->
                 </executions>
             </plugin>
         </plugins>
