@@ -27,7 +27,7 @@
 
     <modules>
 	<module>notes-fe</module>
-        <module>notes-be</module>
+    <module>notes-be</module>
     </modules>
 
     <build>
@@ -43,6 +43,11 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.3.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
