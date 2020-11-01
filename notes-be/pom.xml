@@ -22,16 +22,6 @@
     </properties>
 
     <dependencies>
-<!--
-        <dependency>
-            <groupId>org.bbelovic.notes</groupId>
-            <artifactId>notes-fe</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <classifier>resources</classifier>
-            <type>zip</type>
-            <scope>provided</scope>
-        </dependency>
--->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -117,30 +107,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <!--<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.2</version>
-                <executions>
-                    <execution>
-                        <id>unpack-shared-resources</id>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <phase>generate-resources</phase>
-                        <configuration>
-
-                            <artifact>notes-fe</artifact>
-                            <includeArtifactIds></includeArtifactIds>
-                            <includeTypes>zip</includeTypes>
-                            <outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
-                            <includeGroupIds>org.bbelovic.notes</includeGroupIds>
-                            <excludeTransitive>true</excludeTransitive>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>-->
-
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
@@ -200,7 +166,7 @@
                         </image>
                     </from>
                     <to>
-                        <image>bbelovic/notes-be</image>
+                        <image>bbelovic/notes-app</image>
                     </to>
                     <container>
                         <entrypoint>
