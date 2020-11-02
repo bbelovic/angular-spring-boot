@@ -9,7 +9,7 @@ script:
 after_success: 
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
  - docker push bbelovic/notes-app
- - echo "$HEROKU_REGISTRY_PASSWORD" | docker login -u "$HEROKU_REGISTRY_USERNAME" --password-stdin
+ - echo "$HEROKU_REGISTRY_PASSWORD" | docker login registry.heroku.com -u "$HEROKU_REGISTRY_USERNAME" --password-stdin
  - docker push bbelovic/notes-app
 
 
