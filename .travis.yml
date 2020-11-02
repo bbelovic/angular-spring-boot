@@ -5,12 +5,11 @@ sudo: required
 services:
  - docker
 script:
- - docker build -t bbelovic/notes-fe:latest notes-fe/
  - mvn -f notes-be/pom.xml clean compile jib:dockerBuild
 after_success: 
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
- - docker push bbelovic/notes-fe
- - docker push bbelovic/notes-be
- - echo "$HEROKU_DOCKER_PASSWORD" | docker login -u "$HEROKU_DOCKER_USERNAME" --password-stdin
+ - docker push bbelovic/notes-app
+ - echo "$HEROKU_REGISTRY_PASSWORD" | docker login -u "$HEROKU_REGISTRY_USERNAME" --password-stdin
+ - docker push registry.heroku.com/bbelovic/notes-app
 
 
