@@ -26,7 +26,6 @@
 
 
     <modules>
-	<module>notes-fe</module>
     <module>notes-be</module>
     </modules>
 
