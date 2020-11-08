@@ -9,10 +9,10 @@ services:
   notes-be:
     image: 'notes-be-jib:latest'
     environment:
-      - DB_USER=notes_user
-      - DB_PASSWD=notes_pass
+      - SPRING_DATASOURCE_USERNAME=notes_user
+      - SPRING_DATASOURCE_PASSWORD=notes_pass
       - DB_NAME=notes_db
-      - DB_HOST=db
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/notes_db
       - DB_PORT=5432
       - FE_PORT=4200
     depends_on:
