@@ -7,7 +7,7 @@ services:
       - POSTGRES_PASSWORD=notes_pass
       - POSTGRES_DB=notes_db
   notes-be:
-    image: 'notes-be-jib:latest'
+    image: 'bbelovic/notes-app:latest'
     environment:
       - SPRING_DATASOURCE_USERNAME=notes_user
       - SPRING_DATASOURCE_PASSWORD=notes_pass
@@ -19,9 +19,5 @@ services:
       - db
     entrypoint: ["./entrypoint.sh"]
     command: ["db:5432"]
-  notes-fe:
-    image: 'notes-fe:latest'
     ports:
-      - "4200:80"
-    depends_on: 
-      - 'notes-be'
+      - "8080:8080"
