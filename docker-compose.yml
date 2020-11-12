@@ -18,6 +18,5 @@ services:
     depends_on:
       - db
     entrypoint: ["./entrypoint.sh"]
-    command: [${SPRING_DATASOURCE_URL}]
     ports:
       - "8080:8080"
