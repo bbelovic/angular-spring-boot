@@ -23,6 +23,7 @@
         <node.version>v12.18.3</node.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <jib.version>2.6.0</jib.version>
     </properties>
 
     <dependencies>
@@ -86,7 +87,7 @@
                     <plugin>
                         <groupId>com.google.cloud.tools</groupId>
                         <artifactId>jib-maven-plugin</artifactId>
-                        <version>2.5.2</version>
+                        <version>${jib.version}</version>
                         <configuration>
                             <from>
                                 <image>
@@ -96,7 +97,11 @@
                             <to>
                                 <image>bbelovic/notes-app</image>
                             </to>
+                        <container>
+                            
+                        </container>
                         </configuration>
+
                     </plugin>
                 </plugins>
             </build>
@@ -108,7 +113,7 @@
                     <plugin>
                         <groupId>com.google.cloud.tools</groupId>
                         <artifactId>jib-maven-plugin</artifactId>
-                        <version>2.5.2</version>
+                        <version>${jib.version}</version>
                         <configuration>
                             <from>
                                 <image>
