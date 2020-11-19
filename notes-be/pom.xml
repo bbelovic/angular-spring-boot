@@ -98,7 +98,9 @@
                                 <image>bbelovic/notes-app</image>
                             </to>
                         <container>
-                            
+                            <environment>
+                                <SPRING_DATASOURCE_URL>jdbc:postgresql://ec2-54-237-155-151.compute-1.amazonaws.com:5432/dfh9ijnhda3p1</SPRING_DATASOURCE_URL>
+                            </environment>
                         </container>
                         </configuration>
 
