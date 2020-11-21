@@ -7,8 +7,8 @@
 
     <changeSet id="1" author="bbelovic">
         <createTable tableName="notes">
-            <column name="id" type="bigserial">
-                <constraints primaryKey="true" nullable="false"/>
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="title" type="varchar(256)">
                 <constraints nullable="true"/>
