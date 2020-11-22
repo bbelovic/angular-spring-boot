@@ -5,7 +5,7 @@ sudo: required
 services:
  - docker
 script:
- - mvn -f notes-be/pom.xml clean compile jib:dockerBuild
+ - mvn -f notes-be/pom.xml clean compile jib:dockerBuild -Pheroku
 after_success:
  - curl https://cli-assets.heroku.com/install.sh | sh
  - /usr/local/bin/heroku --version
