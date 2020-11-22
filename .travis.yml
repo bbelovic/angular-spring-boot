@@ -6,10 +6,12 @@ services:
  - docker
 script:
  - mvn -f notes-be/pom.xml clean compile jib:dockerBuild
-after_success: 
- - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
- - docker push bbelovic/notes-app
- - echo "$HEROKU_REGISTRY_PASSWORD" | docker login registry.heroku.com -u "$HEROKU_REGISTRY_USERNAME" --password-stdin
- - docker push bbelovic/notes-app
+after_success:
+ - curl https://cli-assets.heroku.com/install.sh | sh
+ - /usr/local/bin/heroku --version
+# - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+# - docker push bbelovic/notes-app
+# - echo "$HEROKU_REGISTRY_PASSWORD" | docker login registry.heroku.com -u "$HEROKU_REGISTRY_USERNAME" --password-stdin
+# - docker push bbelovic/notes-app
 
 
