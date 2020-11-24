@@ -9,9 +9,8 @@ script:
 after_success:
  - curl https://cli-assets.heroku.com/install.sh | sh
  - /usr/local/bin/heroku --version
-# - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-# - docker push bbelovic/notes-app
-# - echo "$HEROKU_REGISTRY_PASSWORD" | docker login registry.heroku.com -u "$HEROKU_REGISTRY_USERNAME" --password-stdin
-# - docker push bbelovic/notes-app
-
+ - docker tag bbelovic/notes-app registry.heroku.com/leisure-app/web
+ - echo "$HEROKU_REGISTRY_PASSWORD" | docker login registry.heroku.com -u "$HEROKU_REGISTRY_USERNAME" --password-stdin
+ - docker push registry.heroku.com/leisure-app/web
+ - /usr/local/bin/heroku container:release web -a leisure-app -v
 
