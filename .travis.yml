@@ -8,10 +8,8 @@ script:
  - mvn -f notes-be/pom.xml clean compile jib:dockerBuild -Pheroku
 after_success:
  - curl https://cli-assets.heroku.com/install.sh | sh
- - /usr/local/bin/heroku --version
  - docker tag bbelovic/notes-app registry.heroku.com/leisure-app/web
  - echo "$HEROKU_REGISTRY_PASSWORD" | docker login registry.heroku.com -u "$HEROKU_REGISTRY_USERNAME" --password-stdin
  - docker push registry.heroku.com/leisure-app/web
- - /usr/local/bin/heroku whoami
  - /usr/local/bin/heroku container:release web -a leisure-app -v
 
