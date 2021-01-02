@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController
 import javax.servlet.http.HttpServletRequest
 
 @RestController
-class LogoutController(val clientRegistrationRepository: ClientRegistrationRepository) {
+class LogoutController(clientRegistrationRepository: ClientRegistrationRepository) {
 
-    val registration: ClientRegistration = clientRegistrationRepository.findByRegistrationId("okta");
+    val registration: ClientRegistration = clientRegistrationRepository.findByRegistrationId("okta")
 
     @PostMapping("/api/logout")
     fun logout(request: HttpServletRequest,
